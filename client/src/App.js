@@ -40,7 +40,7 @@ class App extends Component {
       <div>
           <Table>
             <TableHead>
-              <TableRow>
+              `<TableRow>
                 <TableCell>번호</TableCell>
                 <TableCell>이미지</TableCell>
                 <TableCell>이름</TableCell>
