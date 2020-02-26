@@ -6,34 +6,43 @@ import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
-
-const custmoers = [{
-  'id' : 1,
-  'image' : 'https://placeimg.com/64/64/1',
-  'name' : '홍길동',
-  'birthday' : '111111',
-  'gender' : '남자',
-  'job' : '대학생' 
-},
-{
-  'id' : 2,
-  'image' : 'https://placeimg.com/64/64/2',
-  'name' : '전애란',
-  'birthday' : '880510',
-  'gender' : '여자',
-  'job' : '개발자' 
-},
-{
-  'id' : 3,
-  'image' : 'https://placeimg.com/64/64/3',
-  'name' : '이순신',
-  'birthday' : '921215',
-  'gender' : '남자',
-  'job' : '대학생' 
-},
-]
+import axios from 'axios';
 
 class App extends Component {
+
+  state = {
+    customers: ""
+  }
+
+  // componentDidMount() {
+  //   this.callApi()
+  //   .then(res => this.setState({customers: res}))
+  //   .catch(err => console.log(err));
+  // }
+
+  // callApi = async () => {
+  //   const response = await axios.get('/api/customers');
+  //   const body =  await response.json();
+  //   return body;
+  // }
+  
+  // react-scripts의 버전이 2 이상인 경우 http-proxy-middleware를 설치해 setupProxy.js라는 파일을 통해 proxy 설정을 해줘야 한다.
+
+  componentDidMount() {
+    this.callApi()
+  }
+
+  callApi = async () => {
+    try {
+      const response = await axios.get('/api/customers');
+      this.setState({
+        customers: response.data
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   render() {
     return (
       <div>
@@ -49,7 +58,9 @@ class App extends Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {custmoers.map(c => { return ( <Customer key={c.id} id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job} /> ); })}
+              {this.state.customers ? this.state.customers.map(c => { 
+                return ( <Customer key={c.id} id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job}/> );
+              }) : ""}
             </TableBody>
           </Table>
       </div>      
