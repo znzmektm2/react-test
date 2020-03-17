@@ -45,28 +45,22 @@ class App extends Component {
   }
 
   // componentDidMount() {
+  //   this.timer = setInterval(this.progress, 20);
   //   this.callApi()
   //   .then(res => this.setState({customers: res}))
   //   .catch(err => console.log(err));
   // }
-
-  // callApi = async () => {
-  //   const response = await fetch('/api/customers');
-  //   const body =  await response.json();
-  //   return body;
-  // }
-  
-  // react-scripts의 버전이 2 이상인 경우 http-proxy-middleware를 설치해 setupProxy.js라는 파일을 통해 proxy 설정을 해줘야 한다.
 
   componentDidMount() {
     this.timer = setInterval(this.progress, 20);
     this.callApi();
   }
 
-  progress = () => {
-    const { completed } = this.state;
-    this.setState({ completed: completed >= 100 ? 0 : completed + 1 });
-  }
+  // callApi = async () => {
+  //   const response = await fetch('/api/customers');
+  //   const body =  await response.json();
+  //   return body;
+  // }
 
   callApi = async () => {
     try {
@@ -78,7 +72,14 @@ class App extends Component {
       console.log(e);
     }
   }
-
+  
+  // react-scripts의 버전이 2 이상인 경우 http-proxy-middleware를 설치해 setupProxy.js라는 파일을 통해 proxy 설정을 해줘야 한다.
+ 
+  progress = () => {
+    const { completed } = this.state;
+    this.setState({ completed: completed >= 100 ? 0 : completed + 1 });
+  }
+  
   render() {
     const { classes } = this.props;
     return (
@@ -109,7 +110,6 @@ class App extends Component {
             </Table>
         </Paper>  
         <CustomerAdd stateRefresh={this.stateRefresh} />
-        <img src="/img/ysr.jpg" alt="dd"/>
       </div>    
     );
   }
