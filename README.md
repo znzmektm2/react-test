@@ -1,0 +1,13 @@
+# React와 Node.js를 활용한 고객 관리 시스템 개발
+- Material UI를 적용하여 고객 테이블 디자인하기
+- Node.js Express에서 REST API 구축하기
+- API 로딩 처리 구현하기
+- AWS RDS 서비스를 이용하여 MySQL DB 구축하기
+- 고객(Customer) DB 테이블 구축 및 Express와 연동하기
+- 고객 추가 양식(Form) 구현 및 이벤트 핸들링
+- Node.js Express에서 파일 업로드 요청 처리 및 DB에 데이터 삽입 
+- 부모 컴포넌트의 상태(State) 변경을 통한 고객 정보 갱신
+- 고객(Customer) 정보 삭제 기능 구현하기
+- Material UI 모달(Modal) 디자인 구현하기 
+- AppBar 및 웹 폰트를 적용하여 디자인 개편하기
+- 필터(Filter) 함수를 이용한 고객(Customer) 검색 기능 구현하기
